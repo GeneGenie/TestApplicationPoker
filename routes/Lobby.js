@@ -10,17 +10,19 @@ function Lobby(opts){
    var rooms = [];
     var io = opts.io;
 
-    rooms.push(new Room({name:"Room1"}));
-    rooms.push(new Room({name:"Default Room asd"}));
+    rooms.push(new Room({name:"Room1",blind:{l:1,h:2}}));
+    rooms.push(new Room({name:"Room2",blind:{l:100,h:200}}));
 
 
-    io.on("connection",function(){
-        io.emit("lobby:roomsList",rooms)
+    io.on("connection",function(con){
+        console.log('new con')
+        con.emit("lobby:roomsList",rooms)
     })
-    io.on('lobby:enterRoom',function(data){
+    io.route('lobby:enterRoom',function(req){
        var r =  _.find(rooms,function(room){
-            return room.id == data.roomId;
+            return room.id == req.data.roomId;
         })
+        console.log("ENTER",r,req.data)
        // r.userEnter(data.userId);
 
     })

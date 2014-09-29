@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Rooms
+  p#rooms
+block scripts
+    script(src="/javascripts/connectSocket.js")
+    script(src="/javascripts/lobby.js")

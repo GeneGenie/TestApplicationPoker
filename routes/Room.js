@@ -10,6 +10,7 @@ module.exports = function(io){
 var Room = function(opts){
     var self= this;
     self.id =ID.generate();
+    self.blind = opts.cfg.blind;
     self.name = opts.cfg.name;
     self.testM = function(){}
     var io  = opts.io;
