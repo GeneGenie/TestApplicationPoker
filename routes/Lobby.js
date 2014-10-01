@@ -23,7 +23,7 @@ function Lobby(opts){
             return room.id == req.data.roomId;
         })
         console.log("ENTER",r,req.data)
-       // r.userEnter(data.userId);
+        r.userEnter(req.io.socket);
 
     })
 

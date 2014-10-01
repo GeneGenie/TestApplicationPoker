@@ -14,8 +14,14 @@ var Room = function(opts){
     self.name = opts.cfg.name;
     self.testM = function(){}
     var io  = opts.io;
+    var i=0;
+    self.userEnter = function(socket){
+        i++;
 
+    io.broadcast("room:test",'вы блять');
+    socket.emit("room:test",'tы блять'+i);
 
+    }
 
 
    // var g=   new Game();
