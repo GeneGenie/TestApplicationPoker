@@ -3,26 +3,27 @@ var http = require('http');
 var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
-var MongoStore = require('connect-mongostore')(session);
+var MongoStore = require('connect-mongostore')(express.session);
 
-var app = express();
+var app = express().http().io();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon());
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
-app.use(session({
-    secret: 'loooooool',
+
+app.use(express.cookieParser());
+app.use(express.session({
+    secret: 'monkey',
     store: new MongoStore({'db': 'sessions'})
 }));
+app.use(favicon());
+//app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./routes/ACL'));
 app.use(app.router);

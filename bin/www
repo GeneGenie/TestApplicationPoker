@@ -11,12 +11,15 @@ GLOBAL.ID  = require('shortid');
 
 
 //app.set('port', process.env.PORT || 80);
-app.http().io();
+//app.http().io();
 
 app.listen(80);
 
 
 
 var io = app.io;
+
+
+
 var lobby  = require('../routes/Lobby')(io)
 

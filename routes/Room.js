@@ -15,12 +15,16 @@ var Room = function(opts){
     self.testM = function(){}
     var io  = opts.io;
     var i=0;
-    self.userEnter = function(socket){
+    var users  = [] ;
+    self.userEnter = function(user,req){
         i++;
+        users
+       // req.io.broadcast("room:test",'вы блять');
+        req.io.join("room"+self.id);
 
-    io.broadcast("room:test",'вы блять');
-    socket.emit("room:test",'tы блять'+i);
 
+        req.io.socket.emit("room:test",'tы блять'+i);
+        req.io.room("room"+self.id).broadcast("room:test",'pidor enter: '+user.login)
     }
 
 

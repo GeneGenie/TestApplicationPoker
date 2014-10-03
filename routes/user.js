@@ -11,6 +11,7 @@ routes = {
         },
         'logout':function(req,res){
             req.session.role='anon';
+            req.session.user=null;
             res.redirect('/user/login');
         }
     },
