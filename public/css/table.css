@@ -1,0 +1,370 @@
+@-webkit-keyframes flipCard {
+  0% {
+    -webkit-transform: perspective(800px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(800px) rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  40% {
+    -webkit-transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 70deg);
+    transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 70deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 120deg);
+    transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 120deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-transform: perspective(800px) scale3d(0.95, 0.95, 0.95) rotate3d(0, 1, 0, 180deg);
+    transform: perspective(800px) scale3d(0.95, 0.95, 0.95) rotate3d(0, 1, 0, 180deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: perspective(800px) rotate3d(0, 1, 0, 180deg);
+    transform: perspective(800px) rotate3d(0, 1, 0, 180deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+@keyframes flipCard {
+  0% {
+    -webkit-transform: perspective(800px) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(800px) rotate3d(0, 1, 0, 0deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  40% {
+    -webkit-transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 70deg);
+    transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 70deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 120deg);
+    transform: perspective(800px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, 120deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-transform: perspective(800px) scale3d(0.95, 0.95, 0.95) rotate3d(0, 1, 0, 180deg);
+    transform: perspective(800px) scale3d(0.95, 0.95, 0.95) rotate3d(0, 1, 0, 180deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: perspective(800px) rotate3d(0, 1, 0, 180deg);
+    transform: perspective(800px) rotate3d(0, 1, 0, 180deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 50px;
+  font-size: 15px;
+}
+#table-wrapper {
+  position: relative;
+  margin-left: 12em;
+}
+#table-wrapper .table {
+  position: relative;
+  width: 55em;
+  height: 25em;
+  border: 1.5em solid #000;
+  border-radius: 14em;
+  background: #b4e391;
+  background: -moz-radial-gradient(center, ellipse cover, #b4e391 0%, #032100 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #b4e391), color-stop(100%, #032100));
+  background: -webkit-radial-gradient(center, ellipse cover, #b4e391 0%, #032100 100%);
+  background: -o-radial-gradient(center, ellipse cover, #b4e391 0%, #032100 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #b4e391 0%, #032100 100%);
+  background: radial-gradient(ellipse at center, #b4e391 0%, #032100 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b4e391', endColorstr='#032100', GradientType=1);
+  background-size: 100%;
+  margin: 5em;
+}
+#table-wrapper .table .cards-layer {
+  position: relative;
+}
+#table-wrapper .table .cards-layer .card-mover {
+  width: 3em;
+  height: 4.2em;
+  top: 0.3em;
+  left: 25.6em;
+  position: absolute;
+  transform: rotate(180deg);
+  z-index: 10;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+  z-index: 5;
+  transform-style: preserve-3d;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3em;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.back {
+  background: url(../images/back.png) no-repeat;
+  background-size: 100%;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front {
+  border: 1px solid black;
+  box-sizing: border-box;
+  transform: rotateY(180deg);
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .type {
+  font-size: 1em;
+  margin-left: 0.2em;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .suit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 2em;
+  height: 2em;
+  background-image: url(../images/suits.png);
+  background-repeat: no-repeat;
+  background-size: 200%;
+  margin: auto;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .suit.spades {
+  background-position: 0.1em -0.1em;
+  background-size: 222%;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .suit.hearts {
+  background-position: 2.1em -0.1em;
+  background-size: 222%;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .suit.diamonds {
+  background-position: 0.1em -2.4em;
+  background-size: 222%;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper .card.front .suit.clubs {
+  background-position: 2.1em -2.4em;
+  background-size: 222%;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper.flipped.f1 {
+  -webkit-animation: flipCard 0.4s;
+  animation: flipCard 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0s;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper.flipped.f2 {
+  -webkit-animation: flipCard 0.4s;
+  animation: flipCard 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.3s;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper.flipped.f3 {
+  -webkit-animation: flipCard 0.4s;
+  animation: flipCard 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.6s;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper.flipped.f4 {
+  -webkit-animation: flipCard 0.4s;
+  animation: flipCard 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.9s;
+}
+#table-wrapper .table .cards-layer .card-mover .card-wrapper.flipped.f5 {
+  -webkit-animation: flipCard 0.4s;
+  animation: flipCard 0.4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 1.2s;
+}
+#table-wrapper .table .cards-layer .card-pair {
+  position: absolute;
+  width: 5em;
+}
+#table-wrapper .table .cards-layer .card-pair .card-mover {
+  z-index: 20;
+}
+#table-wrapper .table .cards-layer .table-cards {
+  position: relative;
+}
+#table-wrapper .table .cards-layer .deck-wrap {
+  position: absolute;
+  top: 0.3em;
+  left: 25.6em;
+}
+#table-wrapper .table .cards-layer .deck-wrap .deck {
+  width: 3.5em;
+  height: 4.7em;
+  background-size: 100%;
+  background-image: url(../images/deck.png);
+  background-repeat: no-repeat;
+}
+#table-wrapper .table .chips-layer {
+  position: relative;
+  text-align: center;
+}
+#table-wrapper .table .chips-layer #dealer-chip {
+  background-color: #FF0;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 1em;
+  left: 15em;
+  border: 1px solid #000;
+  line-height: 1em;
+  font-size: 2em;
+}
+#table-wrapper .players {
+  position: relative;
+}
+#table-wrapper .players .player {
+  position: absolute;
+  width: 17em;
+}
+#table-wrapper .players .player .avatar {
+  border: 0.5em solid #000000;
+  width: 5em;
+  height: 5em;
+  border-radius: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+#table-wrapper .players .player .wrapper-table {
+  background-color: #000;
+  color: #FFF;
+  width: 10em;
+  border-radius: 0.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+#table-wrapper .players .player .wrapper-table .name,
+#table-wrapper .players .player .wrapper-table .cash {
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 1.5em;
+  border-bottom: 0.1em solid #808080;
+}
+#table-wrapper .players .player .wrapper-table .cash {
+  border: none;
+}
+#table-wrapper .players .player .progressbar {
+  position: absolute;
+  left: 6.1em;
+  top: 5.3em;
+  width: 10em;
+  height: 0.9em;
+  padding: 0px;
+  background: #cfcfcf;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa #bbb #fff #bbb;
+  box-shadow: inset 0px 2px 3px #bbb;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  z-index: 10;
+}
+#table-wrapper .players .player .progressbar .progressbar-inner {
+  width: 77%;
+  /* Change to actual percentage */
+  height: 100%;
+  background: #999;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background-size: 18px 18px;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  box-shadow: inset 0px 2px 8px rgba(255, 255, 255, 0.5), inset -1px -1px 0px rgba(0, 0, 0, 0.2);
+}
+#table-wrapper .players .player .progressbar.progressbar-red .progressbar-inner {
+  background-color: #ff0000;
+  width: 0%;
+}
+#table-wrapper .players .player.one {
+  top: -6em;
+  left: 10em;
+}
+#table-wrapper .players .player.two {
+  top: -6em;
+  left: 52em;
+}
+#table-wrapper .players .player.three {
+  top: 10em;
+  left: 64em;
+}
+#table-wrapper .players .player.four {
+  top: 28.5em;
+  left: 45em;
+}
+#table-wrapper .players .player.five {
+  top: 28.5em;
+  left: 17em;
+}
+#table-wrapper .players .player.six {
+  top: 10em;
+  left: -11.7em;
+}
+#control-block {
+  margin-top: 17em;
+  margin-left: 56em;
+}
+#control-block .control-wrapper {
+  background-image: url(../images/control_wrapper.png);
+  width: 15em;
+  height: 14.5em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transform: rotate(312deg);
+  position: relative;
+}
+#control-block .control-wrapper .poker-btn {
+  background-color: #F00;
+  color: #FFF;
+  border: none;
+  border-radius: 50%;
+  width: 3.4em;
+  height: 3.4em;
+  font-size: 1.5em;
+  position: absolute;
+  transform: rotate(-312deg);
+  outline: none;
+}
+#control-block .control-wrapper .poker-btn.check {
+  left: 3.35em;
+  top: 0.5em;
+}
+#control-block .control-wrapper .poker-btn.bet {
+  left: 6.2em;
+  top: 3.6em;
+}
+#control-block .control-wrapper .poker-btn.fold {
+  left: 0.4em;
+  top: 3.6em;
+}

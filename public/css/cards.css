@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 50px;
+  font-size: 10px;
+}
+.card {
+  position: relative;
+  width: 3em;
+  height: 5em;
+  border: 1px solid black;
+  border-radius: 0.3em;
+}
+.card .type {
+  font-size: 1em;
+  margin-left: 0.2em;
+}
+.card .suit {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 2em;
+  height: 2em;
+  background-image: url(../images/suits.png);
+  background-size: 200%;
+  margin: auto;
+}
+.card .suit.spades {
+  background-position: 0.1em -0.1em;
+  background-size: 222%;
+}
+.card .suit.hearts {
+  background-position: 2.1em -0.1em;
+  background-size: 222%;
+}
+.card .suit.diamonds {
+  background-position: 0.1em -2.4em;
+  background-size: 222%;
+}
+.card .suit.clubs {
+  background-position: 2.1em -2.4em;
+  background-size: 222%;
+}
