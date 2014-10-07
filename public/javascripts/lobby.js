@@ -7,6 +7,8 @@ soc.on('lobby:roomsList', function (data) {
         $room.append($stake);
         $room.on("click", function enterRoom() {
             soc.emit("lobby:enterRoom", {roomId: room.id})
+            $("#rooms").hide();
+            $("#table-wrapper").show();
         })
         $container.append($room);
     })

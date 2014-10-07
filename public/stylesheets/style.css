@@ -31,3 +31,6 @@ a {
     margin-left: 1em;
     color:black;
 }
+#table-wrapper{
+    display: none;
+}
